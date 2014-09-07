@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI Calculator</title>
+  <meta charset="utf-8">
+  <meta name="description" content="BMI Calculator">
+  <meta name="author" content="Arjhun Hariharan">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>BMI Calculator</h1>
+    <h2>Course Project of Developing Data Products (Coursera)</h2>
+    <p>Arjhun Hariharan<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>What is BMI?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The body mass index (BMI), is a measure of relative weight based on an individual&#39;s mass and height. The body mass index (BMI), is a measure of relative weight based on an individual&#39;s mass and height. A frequent use of the BMI is to assess how much an individual&#39;s body weight departs from what is normal or desirable for a person of his or her height.</p>
+
+<h2>How is it calculated?</h2>
+
+<p>\(BMI = weight/(height)^2\)
+where weight - kilograms (kg) and height - metres (m).</p>
+
+<p>For example:</p>
+
+<pre><code class="r">height=1.60
+weight=65
+weight/height^2
+</code></pre>
+
+<pre><code>## [1] 25.39
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Classification</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The following is the classification according to BMI values :</p>
+
+<ul>
+<li>BMI less than 15    : Very severely underweight</li>
+<li>BMI from 15 to 16   : Severely underweight</li>
+<li>BMI from 16 to 18.5 : Underweight</li>
+<li>BMI from 18.5 to 25 : Healthy weight</li>
+<li>BMI from 25 to 30   : Overweight</li>
+<li>BMI from 30 to 35   : Moderately Obese<br></li>
+<li>BMI from 35 to 40   : Severely Obese</li>
+<li>BMI above 40        : Very severely Obese</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How does the app work?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>It consists of 2 functions, &#39;BMI_calc&#39; and &#39;BMI_category&#39;. </p>
+
+<p>The &#39;BMI_calc&#39; function takes the height and weight from thr input as parameters, calculates the BMI score and returns it to be displayed as part of the output.</p>
+
+<p>&#39;BMI_calc&#39; function: </p>
+
+<pre><code class="r">BMI_calc&lt;-function(wt,ht)
+{
+  ht=ht/100
+  BMI = wt/(ht^2)
+  BMI
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How does the app work (contd.)?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The function &#39;BMI_category&#39; calsiifies the BMI score calculated into the corresponding category and returns the category to be displays in the output.</p>
+
+<pre><code class="r">BMI_category&lt;-function(wt,ht)
+{
+  BMIvalue=BMI_calc(wt,ht)
+  if(BMIvalue&lt;15) category = &quot;Very severely underweight&quot;
+  else if (BMIvalue&lt;16) category =  &quot;Severely underweight&quot;
+  else if (BMIvalue&lt;18.5) category =  &quot;Underweight&quot;
+  else if (BMIvalue&lt;25) category =  &quot;Healthy weight&quot;
+  else if (BMIvalue&lt;30) category = &quot;overweight&quot;
+  else if (BMIvalue&lt;35) category =  &quot;Moderately obese&quot;
+  else if (BMIvalue&lt;40) category =  &quot;Severely obese&quot;
+  else category = &quot;Very severely obese&quot;
+
+  category
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='What is BMI?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Classification'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How does the app work?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='How does the app work (contd.)?'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

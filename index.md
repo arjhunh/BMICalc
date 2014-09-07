@@ -1,0 +1,91 @@
+---
+title       : BMI Calculator
+subtitle    : Course Project of Developing Data Products (Coursera)
+author      : Arjhun Hariharan
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## What is BMI?
+
+The body mass index (BMI), is a measure of relative weight based on an individual's mass and height. The body mass index (BMI), is a measure of relative weight based on an individual's mass and height. A frequent use of the BMI is to assess how much an individual's body weight departs from what is normal or desirable for a person of his or her height.
+
+## How is it calculated?
+
+$BMI = weight/(height)^2$
+where weight - kilograms (kg) and height - metres (m).
+
+For example:
+
+```r
+height=1.60
+weight=65
+weight/height^2
+```
+
+```
+## [1] 25.39
+```
+
+--- .class #id 
+
+## Classification 
+
+The following is the classification according to BMI values :
+
+* BMI less than 15    : Very severely underweight
+* BMI from 15 to 16   : Severely underweight
+* BMI from 16 to 18.5 : Underweight
+* BMI from 18.5 to 25 : Healthy weight
+* BMI from 25 to 30   : Overweight
+* BMI from 30 to 35   : Moderately Obese  
+* BMI from 35 to 40   : Severely Obese
+* BMI above 40        : Very severely Obese
+
+--- .class #id 
+
+## How does the app work?
+
+It consists of 2 functions, 'BMI_calc' and 'BMI_category'. 
+
+The 'BMI_calc' function takes the height and weight from thr input as parameters, calculates the BMI score and returns it to be displayed as part of the output.
+
+'BMI_calc' function: 
+
+```r
+BMI_calc<-function(wt,ht)
+{
+  ht=ht/100
+  BMI = wt/(ht^2)
+  BMI
+}
+```
+
+--- .class #id 
+
+## How does the app work (contd.)?
+
+The function 'BMI_category' calsiifies the BMI score calculated into the corresponding category and returns the category to be displays in the output.
+
+
+```r
+BMI_category<-function(wt,ht)
+{
+  BMIvalue=BMI_calc(wt,ht)
+  if(BMIvalue<15) category = "Very severely underweight"
+  else if (BMIvalue<16) category =  "Severely underweight"
+  else if (BMIvalue<18.5) category =  "Underweight"
+  else if (BMIvalue<25) category =  "Healthy weight"
+  else if (BMIvalue<30) category = "overweight"
+  else if (BMIvalue<35) category =  "Moderately obese"
+  else if (BMIvalue<40) category =  "Severely obese"
+  else category = "Very severely obese"
+  
+  category
+}
+```
